@@ -61,17 +61,18 @@ namespace OOPUniversityManagement
                 return "department Remove Faild! Because RegNo donot find";
             }
         }
-        public List<Department> GetDepartmentInfo()
+        public string GetDepartmentInfo()
         {
+            var deptInfo = "";
             List<Department> departments = Departments.ToList();
-            return departments;
-            //int sl = 1;
-            //foreach (Department department in departments)
-            //{
-            //    Console.WriteLine($"Sl No : {sl} Reg No : {department.DeptNo} Name : {department.Name}");
-            //    sl++;
-                
-            //}
+            foreach (Department department in departments)
+            {
+                var dept= department.GetDepartmentInfo();
+                deptInfo += dept;
+                var studentInfo = department.GetStudentInfo();
+                deptInfo += studentInfo;
+            }
+            return deptInfo;           
 
         }
     }

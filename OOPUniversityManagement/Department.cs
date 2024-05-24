@@ -54,23 +54,23 @@ namespace OOPUniversityManagement
                 return "Student Remove Faild! Because RegNo donot find";
             }
         }
-        public void GetStudentInfo()
+        public string GetStudentInfo()
         {
             List<Student> students = Students.ToList();
             int sl = 1;
+            var studentInfo = "";
             foreach (Student student in students)
             {
-                Console.WriteLine($"Sl No : {sl} Reg No : {student.RegNo} Name : {student.Name}");
+                string stInfo =$"Sl No : {sl} Reg No : {student.RegNo} Name : {student.Name} \n";
                 sl++;
+                studentInfo += stInfo;
             }
-
+            return studentInfo;
         }
-        public List<Student> GetStudentByDept(string deptNo)
+       
+        public string GetDepartmentInfo()
         {
-            List<Student> students = Students.Where(x=>x.DeptNo==deptNo).ToList();
-            return students;
-           
-
+            return $"Department : {Name} \n";
         }
     }
 }
